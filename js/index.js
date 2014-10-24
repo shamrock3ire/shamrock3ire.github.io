@@ -39,7 +39,7 @@ var mapServerList = {
 		source_type: "bing",
 		source: new ol.source.BingMaps({
 			culture: 'ja-jp',
-			key: 'ArX7oPi3X8t-rAunsTe7zA8MMyS0Qr6IydPwdzQY_R_ZWfPDWZZ9q7XQRrn8FQ85',
+			key: 'AhGQykUKW2-u1PwVjLwQkSA_1rCTFESEC7bCZ0MBrnzVbVy7KBHsmLgwW_iRJg17',
 			imagerySet: 'Aerial',
 		})
 	},
@@ -48,7 +48,7 @@ var mapServerList = {
 		source_type: "bing",
 		source: new ol.source.BingMaps({
 			culture: 'ja-jp',
-			key: 'ArX7oPi3X8t-rAunsTe7zA8MMyS0Qr6IydPwdzQY_R_ZWfPDWZZ9q7XQRrn8FQ85',
+			key: 'AhGQykUKW2-u1PwVjLwQkSA_1rCTFESEC7bCZ0MBrnzVbVy7KBHsmLgwW_iRJg17',
 			imagerySet: 'Road',
 		})
 	}
