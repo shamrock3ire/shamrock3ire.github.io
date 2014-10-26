@@ -1,6 +1,6 @@
 {
 "type": "FeatureCollection",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::4612" } },
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::4326" } },
                                                                                 
 "features": [
 { "type": "Feature", "properties": { "Id": 0, "N02_001": "12", "N02_002": "5", "line": "つくばエクスプレス", "company": "首都圏新都市鉄道", "station_name": "万博記念公園", "shubetsu": "私鉄", "lon": 140.059370, "lat": 36.058400 }, "geometry": { "type": "Point", "coordinates": [ 140.059375, 36.0584 ] } },
