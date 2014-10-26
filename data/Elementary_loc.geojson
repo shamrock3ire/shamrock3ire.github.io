@@ -1,6 +1,6 @@
 {
 "type": "FeatureCollection",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::4326" } },
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
                                                                                 
 "features": [
 { "type": "Feature", "properties": { "A27_005": "08220", "A27_006": "つくば市立", "A27_007": "吾妻小学校", "A27_008": "つくば市吾妻2-16", "x": 140.109621, "y": 36.084224, "label": "吾妻小" }, "geometry": { "type": "Point", "coordinates": [ 140.109621, 36.084224 ] } },
