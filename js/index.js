@@ -602,6 +602,9 @@ $('#mainPage').on('pageshow', function() {
 		}
 	});
 
+	$('#cbIchijiNinka').click(function() {
+		switchLayer(getLayerNameBySubStred(this.id, 2), $(this).prop('checked'));
+	});
 
 	$('#cbKindergarten').click(function() {
 		switchLayer(getLayerNameBySubStred(this.id, 2), $(this).prop('checked'));
@@ -609,9 +612,7 @@ $('#mainPage').on('pageshow', function() {
 	$('#cbNinka').click(function() {
 		switchLayer(getLayerNameBySubStred(this.id, 2), $(this).prop('checked'));
 	});
-	$('#cbIchijiNinka').click(function() {
-		switchLayer(getLayerNameBySubStred(this.id, 2), $(this).prop('checked'));
-	});
+
 	$('#cbKodomoen').click(function() {
 		switchLayer(getLayerNameBySubStred(this.id, 2), $(this).prop('checked'));
 	});
