@@ -30,6 +30,10 @@
 	background-color: #0362A0;
 }
 
+#lblIchijiNinka.ui-checkbox-on {
+	background-color: #a00362;
+}
+
 #lblKindergarten.ui-checkbox-on {
 	background-color: #FF5C24;
 }

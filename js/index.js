@@ -310,6 +310,16 @@ $('#mainPage').on('pageshow', function() {
 				style: circleStyleFunction,
 				visible: true
 			}),
+			// 一時保育有り認可
+			new ol.layer.Vector({
+				source: new ol.source.GeoJSON({
+					projection: 'EPSG:3857',
+					url: 'data/Ichiji.geojson'
+				}),
+				name: 'layerIchiji',
+				style: nurseryStyleFunction
+			}),
+
 			// 認可外
 			new ol.layer.Vector({
 				source: new ol.source.GeoJSON({
@@ -539,7 +549,7 @@ $('#mainPage').on('pageshow', function() {
 					content += '<th></th>';
 					content += '<td>';
 					if (feature.get('一時') !== null) {
-						content += '一時保育 ';
+						content += '一時保育 '+feature.get('利用日時')+' '+feature.get('利用定員')+'名';
 					}
 					if (feature.get('休日') !== null) {
 						content += '休日保育 ';
@@ -594,6 +604,9 @@ $('#mainPage').on('pageshow', function() {
 		switchLayer(getLayerNameBySubStred(this.id, 2), $(this).prop('checked'));
 	});
 	$('#cbNinka').click(function() {
+		switchLayer(getLayerNameBySubStred(this.id, 2), $(this).prop('checked'));
+	});
+	$('#cbIchijiNinka').click(function() {
 		switchLayer(getLayerNameBySubStred(this.id, 2), $(this).prop('checked'));
 	});
 	$('#cbKodomoen').click(function() {

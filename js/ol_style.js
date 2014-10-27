@@ -4,6 +4,11 @@ function getFeatureStyle(type) {
 			color: '#6EE100',
 			img: 'image/018.png'
 		};
+	} else if ('一時保育有認可保育所' == type){
+		return {
+			color: '#a00362',
+			img: 'image/019.png'
+		};
 	} else if ('認可外' == type){
 		return {
 			color: '#0362A0',
