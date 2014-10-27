@@ -334,10 +334,10 @@ $('#mainPage').on('pageshow', function() {
 				source: new ol.source.GeoJSON({
 					projection: 'EPSG:3857',
 					url: 'data/Ichiji.geojson'
+					visible: false
 				}),
 				name: 'layerIchijiNinka',
 				style: nurseryStyleFunction
-				visible: false
 			}),
 			// 幼稚園
 			new ol.layer.Vector({
