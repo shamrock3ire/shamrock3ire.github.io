@@ -545,8 +545,8 @@ $('#mainPage').on('pageshow', function() {
 				}
 				if( feature.get('一時') !== null) {
 					content += '<tr>';
-					content += '<th>一時保育</th>';
-					content += '<td>' + feature.get('利用日時')+' '+feature.get('利用定員')+'名' + '</td>';
+					content += '<th>一時</th>';
+					content += '<td>' + feature.get('利用日時')+' 定員'+feature.get('利用定員')+'名' + '</td>';
 					content += '</tr>';
 				}
 
