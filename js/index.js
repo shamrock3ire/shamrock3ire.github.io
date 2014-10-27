@@ -329,15 +329,6 @@ $('#mainPage').on('pageshow', function() {
 				name: 'layerNinka',
 				style: nurseryStyleFunction
 			}),
-			// 幼稚園
-			new ol.layer.Vector({
-				source: new ol.source.GeoJSON({
-					projection: 'EPSG:3857',
-					url: 'data/Kindergarten.geojson'
-				}),
-				name: 'layerKindergarten',
-				style: nurseryStyleFunction
-			}),
 			// 一時保育有り認可
 			new ol.layer.Vector({
 				source: new ol.source.GeoJSON({
@@ -347,6 +338,15 @@ $('#mainPage').on('pageshow', function() {
 				name: 'layerIchijiNinka',
 				style: nurseryStyleFunction
 				visible: false
+			}),
+			// 幼稚園
+			new ol.layer.Vector({
+				source: new ol.source.GeoJSON({
+					projection: 'EPSG:3857',
+					url: 'data/Kindergarten.geojson'
+				}),
+				name: 'layerKindergarten',
+				style: nurseryStyleFunction
 			})
 
 		],
