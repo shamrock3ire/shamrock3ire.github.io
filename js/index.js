@@ -543,14 +543,17 @@ $('#mainPage').on('pageshow', function() {
 					content += '<td>' + feature.get('備考') + '</td>';
 					content += '</tr>';
 				}
+				if( feature.get('一時') !== null) {
+					content += '<tr>';
+					content += '<th>一時保育</th>';
+					content += '<td>' + feature.get('利用日時')+' '+feature.get('利用定員')+'名' + '</td>';
+					content += '</tr>';
+				}
 
-				if( feature.get('一時') !== null || feature.get('休日') !== null || feature.get('夜間') !== null) {
+				if( feature.get('休日') !== null || feature.get('夜間') !== null) {
 					content += '<tr>';
 					content += '<th></th>';
 					content += '<td>';
-					if (feature.get('一時') !== null) {
-						content += '一時保育 '+feature.get('利用日時')+' '+feature.get('利用定員')+'名';
-					}
 					if (feature.get('休日') !== null) {
 						content += '休日保育 ';
 					}
