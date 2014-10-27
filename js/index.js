@@ -316,7 +316,7 @@ $('#mainPage').on('pageshow', function() {
 					projection: 'EPSG:3857',
 					url: 'data/Ichiji.geojson'
 				}),
-				name: 'layerIchiji',
+				name: 'layerIchijiNinka',
 				style: nurseryStyleFunction
 			}),
 
