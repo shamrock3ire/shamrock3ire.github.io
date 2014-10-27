@@ -346,6 +346,7 @@ $('#mainPage').on('pageshow', function() {
 				}),
 				name: 'layerIchijiNinka',
 				style: nurseryStyleFunction
+				visible: false
 			})
 
 		],
