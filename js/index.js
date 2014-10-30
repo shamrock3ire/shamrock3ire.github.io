@@ -315,37 +315,28 @@ $('#mainPage').on('pageshow', function() {
 			new ol.layer.Vector({
 				source: new ol.source.GeoJSON({
 					projection: 'EPSG:3857',
-					url: 'data/Ninkagai.geojson'
+					url: 'data/nurseryFacilities.geojson'
 				}),
 				name: 'layerNinkagai',
-				style: nurseryStyleFunction
+				style: ninkagaiStyleFunction
 			}),
 			// 認可
 			new ol.layer.Vector({
 				source: new ol.source.GeoJSON({
 					projection: 'EPSG:3857',
-					url: 'data/Ninka.geojson'
+					url: 'data/nurseryFacilities.geojson'
 				}),
 				name: 'layerNinka',
-				style: nurseryStyleFunction
-			}),
-			// 一時保育有り認可
-			new ol.layer.Vector({
-				source: new ol.source.GeoJSON({
-					projection: 'EPSG:3857',
-					url: 'data/Ichiji.geojson'
-				}),
-				name: 'layerIchijiNinka',
-				style: nurseryStyleFunction
+				style: ninkaStyleFunction
 			}),
 			// 幼稚園
 			new ol.layer.Vector({
 				source: new ol.source.GeoJSON({
 					projection: 'EPSG:3857',
-					url: 'data/Kindergarten.geojson'
+					url: 'data/nurseryFacilities.geojson'
 				}),
 				name: 'layerKindergarten',
-				style: nurseryStyleFunction
+				style: kindergartenStyleFunction
 			})
 
 		],
@@ -536,35 +527,36 @@ $('#mainPage').on('pageshow', function() {
 			if (feature.get('開園時間') !== null && feature.get('終園時間') !== null) {
 				content += '<tr>';
 				content += '<th>時間</th>';
-				content += '<td>' + feature.get('開園時間') + '～' + feature.get('終園時間')+'</td>';
+				content += '<td>';
+				content += feature.get('開園時間') + '?' + feature.get('終園時間');
+				if( feature.get('延長') !== null) {
+					content += '(延長あり)';
+				}
+				content += '</td>';
 				content += '</tr>';
-				if( feature.get('延長') === 1) {
-					content += '<tr>';
-					content += '<th></th>';
-					content += '<td>' + feature.get('備考') + '</td>';
-					content += '</tr>';
-				}
-				if( feature.get('一時') !== null) {
-					content += '<tr>';
-					content += '<th>一時</th>';
-					content += '<td>' + feature.get('利用日時')+' 定員 '+feature.get('利用定員')+'名' + '</td>';
-					content += '</tr>';
-				}
-
-				if( feature.get('休日') !== null || feature.get('夜間') !== null) {
-					content += '<tr>';
-					content += '<th></th>';
-					content += '<td>';
-					if (feature.get('休日') !== null) {
-						content += '休日保育 ';
-					}
-					if (feature.get('夜間') !== null) {
-						content += '夜間保育 ';
-					}
-					content += '</td>';
-					content += '</tr>';
-				}
 			}
+			if( feature.get('一時') !== null || feature.get('休日') !== null ||
+				feature.get('夜間') !== null || feature.get('H24') !== null) {
+				content += '<tr>';
+				content += '<th></th>';
+				content += '<td>';
+				if (feature.get('一時') !== null) {
+					content += '一時保育 ';
+				}
+				if (feature.get('休日') !== null) {
+					content += '休日保育 ';
+				}
+				if (feature.get('夜間') !== null) {
+					content += '夜間保育 ';
+				}
+				if (feature.get('H24') !== null) {
+					content += '24時間 ';
+				}
+				content += '</td>';
+				content += '</tr>';
+
+			}
+
 			if (feature.get('開始年齢') !== null && feature.get('終了年齢') !== null) {
 				content += '<tr>';
 				content += '<th>年齢</th>';
@@ -595,16 +587,18 @@ $('#mainPage').on('pageshow', function() {
 				content += '<td>'+feature.get('設置者')+'</td>';
 				content += '</tr>';
 			}
+			if (feature.get('備考') !== null) {
+				content += '<tr>';
+				content += '<th>備考</th>';
+				content += '<td>'+feature.get('備考')+'</td>';
+				content += '</tr>';
+			}
 			content += '</tbody></table>';
 
 			animatedMove(coord[0], coord[1], false);
 			$("#popup-content").html(content);
 			$('#popup').show();
 		}
-	});
-
-	$('#cbIchijiNinka').click(function() {
-		switchLayer(getLayerNameBySubStred(this.id, 2), $(this).prop('checked'));
 	});
 
 	$('#cbKindergarten').click(function() {
