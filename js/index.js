@@ -604,6 +604,7 @@ $('#mainPage').on('pageshow', function() {
 	$('#cbKindergarten').click(function() {
 		switchLayer(getLayerNameBySubStred(this.id, 2), $(this).prop('checked'));
 	});
+
 	$('#cbNinka').click(function() {
 		switchLayer(getLayerNameBySubStred(this.id, 2), $(this).prop('checked'));
 	});

@@ -25,48 +25,48 @@ var ninkaStyleFunction = function(feature, resolution)
 	}
 	return style;
 };
-+/**
-+ * 認可外保育所向けスタイル
-+ * @param  {[type]} feature    [description]
-+ * @param  {[type]} resolution [description]
-+ * @return {[type]}            [description]
-+ */
-+var ninkagaiStyleFunction = function(feature, resolution)
-+{
-+	var facilityTypeName = feature.get('種別');
-+	var style = [];
-+	if(facilityTypeName === "認可外") {
-+		featureStyle = featureStyleList[facilityTypeName];
-+		style        = nurseryStyleFunction(feature, resolution, featureStyle);
-+	}
-+	return style;
-+};
-+
-+/**
-+ * 幼稚園向けスタイル
-+ * @param  {[type]} feature    [description]
-+ * @param  {[type]} resolution [description]
-+ * @return {[type]}            [description]
-+ */
-+var kindergartenStyleFunction = function(feature, resolution)
-+{
-+	var facilityTypeName = feature.get('種別');
-+	var style = [];
-+	if(facilityTypeName === "幼稚園") {
-+		featureStyle = featureStyleList[facilityTypeName];
-+		style        = nurseryStyleFunction(feature, resolution, featureStyle);
-+	}
-+	return style;
-+};
-+
-+/**
-+ * 保育施設共通のスタイル定義
-+ * @param  {[type]} feature      [description]
-+ * @param  {[type]} resolution   [description]
-+ * @param  {[type]} featureStyle [description]
-+ * @return {[type]}              [description]
-+ */
-+var nurseryStyleFunction = function(feature, resolution, featureStyle) {
+/**
+ * 認可外保育所向けスタイル
+ * @param  {[type]} feature    [description]
+ * @param  {[type]} resolution [description]
+ * @return {[type]}            [description]
+ */
+var ninkagaiStyleFunction = function(feature, resolution)
+{
+	var facilityTypeName = feature.get('種別');
+	var style = [];
+	if(facilityTypeName === "認可外") {
+		featureStyle = featureStyleList[facilityTypeName];
+		style        = nurseryStyleFunction(feature, resolution, featureStyle);
+	}
+	return style;
+};
+
+/**
+ * 幼稚園向けスタイル
+ * @param  {[type]} feature    [description]
+ * @param  {[type]} resolution [description]
+ * @return {[type]}            [description]
+ */
+var kindergartenStyleFunction = function(feature, resolution)
+{
+	var facilityTypeName = feature.get('種別');
+	var style = [];
+	if(facilityTypeName === "幼稚園") {
+		featureStyle = featureStyleList[facilityTypeName];
+		style        = nurseryStyleFunction(feature, resolution, featureStyle);
+	}
+	return style;
+};
+
+/**
+ * 保育施設共通のスタイル定義
+ * @param  {[type]} feature      [description]
+ * @param  {[type]} resolution   [description]
+ * @param  {[type]} featureStyle [description]
+ * @return {[type]}              [description]
+ */
+var nurseryStyleFunction = function(feature, resolution, featureStyle) {
 	var radius = 15;
 	var background = new ol.style.Circle({
 		radius: radius,
