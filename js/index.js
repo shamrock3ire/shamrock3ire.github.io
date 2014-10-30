@@ -586,6 +586,12 @@ $('#mainPage').on('pageshow', function() {
 				content += '<td>'+feature.get('設置者')+'</td>';
 				content += '</tr>';
 			}
+			if (feature.get('座標ソース') === '東大ジオコーディング') {
+				content += '<tr>';
+				content += '<th>注意</th>';
+				content += '<td>'+'位置精度：街区レベル'+'</td>';
+				content += '</tr>';
+			}
 			content += '</tbody></table>';
 
 			animatedMove(coord[0], coord[1], false);
