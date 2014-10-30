@@ -1,7 +1,7 @@
 var map;
 
 // 地図表示時の中心座標
-var init_center_coords = [140.1175907, 36.0852375];
+var init_center_coords = [141.347899, 43.063968];
 
 // 中心座標変更セレクトボックス用データ
 var moveToList = [];
@@ -310,7 +310,6 @@ $('#mainPage').on('pageshow', function() {
 				style: circleStyleFunction,
 				visible: true
 			}),
-
 			// 認可外
 			new ol.layer.Vector({
 				source: new ol.source.GeoJSON({
@@ -338,7 +337,6 @@ $('#mainPage').on('pageshow', function() {
 				name: 'layerKindergarten',
 				style: kindergartenStyleFunction
 			})
-
 		],
 		target: 'map',
 		view: new ol.View({
@@ -371,7 +369,7 @@ $('#mainPage').on('pageshow', function() {
 	$.getJSON(
 		"data/wards.geojson",
 		function(data){
-			moveToList.push( {name: "中学校区", header:true} );
+			moveToList.push( {name: "区", header:true} );
 			var lineName = "";
 			for(var i=0; i<data.features.length; i++) {
 				switch(data.features[i].geometry.type) {
@@ -384,7 +382,7 @@ $('#mainPage').on('pageshow', function() {
 							);
 						break;
 					case "LineString":
-						_name        = data.features[i].properties.name;
+						_name        = data.features[i].properties.CITY1 + data.features[i].properties.name;
 						_coordinates = data.features[i].geometry.coordinates;
 						moveToList.push(
 							{name: _name, coordinates: _coordinates, header:false}
@@ -394,7 +392,7 @@ $('#mainPage').on('pageshow', function() {
 			appendToMoveToListBox(moveToList);
 		});
 
-	// 駅位置JSONデータ読み込み～セレクトボックス追加
+	// 駅位置JSONデータ読み込み〜セレクトボックス追加
 	$.getJSON(
 		"data/station.geojson",
 		function(data){
@@ -527,40 +525,36 @@ $('#mainPage').on('pageshow', function() {
 			if (feature.get('開園時間') !== null && feature.get('終園時間') !== null) {
 				content += '<tr>';
 				content += '<th>時間</th>';
-				content += '<td>';
-				content += feature.get('開園時間') + '?' + feature.get('終園時間');
-				if( feature.get('延長') !== null) {
-					content += '(延長あり)';
-				}
-				content += '</td>';
+				content += '<td>' + feature.get('開園時間') + '〜' + feature.get('終園時間')+'</td>';
 				content += '</tr>';
-			}
-			if( feature.get('一時') !== null || feature.get('休日') !== null ||
-				feature.get('夜間') !== null || feature.get('H24') !== null) {
-				content += '<tr>';
-				content += '<th></th>';
-				content += '<td>';
-				if (feature.get('一時') !== null) {
-					content += '一時保育 ';
+				if( feature.get('延長') === 1) {
+					content += '<tr>';
+					content += '<th></th>';
+					content += '<td>' + feature.get('備考') + '</td>';
+					content += '</tr>';
 				}
-				if (feature.get('休日') !== null) {
-					content += '休日保育 ';
-				}
-				if (feature.get('夜間') !== null) {
-					content += '夜間保育 ';
-				}
-				if (feature.get('H24') !== null) {
-					content += '24時間 ';
-				}
-				content += '</td>';
-				content += '</tr>';
 
+				if( feature.get('一時') !== null || feature.get('休日') !== null || feature.get('夜間') !== null) {
+					content += '<tr>';
+					content += '<th></th>';
+					content += '<td>';
+					if (feature.get('一時') !== null) {
+						content += '一時保育 ';
+					}
+					if (feature.get('休日') !== null) {
+						content += '休日保育 ';
+					}
+					if (feature.get('夜間') !== null) {
+						content += '夜間保育 ';
+					}
+					content += '</td>';
+					content += '</tr>';
+				}
 			}
-
 			if (feature.get('開始年齢') !== null && feature.get('終了年齢') !== null) {
 				content += '<tr>';
 				content += '<th>年齢</th>';
-				content += '<td>' + feature.get('開始年齢') + '～' + feature.get('終了年齢') + '</td>';
+				content += '<td>' + feature.get('開始年齢') + '〜' + feature.get('終了年齢') + '</td>';
 				content += '</tr>';
 			}
 			if (feature.get('定員') !== null) {
@@ -587,12 +581,6 @@ $('#mainPage').on('pageshow', function() {
 				content += '<td>'+feature.get('設置者')+'</td>';
 				content += '</tr>';
 			}
-			if (feature.get('備考') !== null) {
-				content += '<tr>';
-				content += '<th>備考</th>';
-				content += '<td>'+feature.get('備考')+'</td>';
-				content += '</tr>';
-			}
 			content += '</tbody></table>';
 
 			animatedMove(coord[0], coord[1], false);
@@ -601,14 +589,13 @@ $('#mainPage').on('pageshow', function() {
 		}
 	});
 
+
 	$('#cbKindergarten').click(function() {
 		switchLayer(getLayerNameBySubStred(this.id, 2), $(this).prop('checked'));
 	});
-
 	$('#cbNinka').click(function() {
 		switchLayer(getLayerNameBySubStred(this.id, 2), $(this).prop('checked'));
 	});
-
 	$('#cbKodomoen').click(function() {
 		switchLayer(getLayerNameBySubStred(this.id, 2), $(this).prop('checked'));
 	});

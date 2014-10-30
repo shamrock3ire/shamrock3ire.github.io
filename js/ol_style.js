@@ -25,6 +25,7 @@ var ninkaStyleFunction = function(feature, resolution)
 	}
 	return style;
 };
+
 /**
  * 認可外保育所向けスタイル
  * @param  {[type]} feature    [description]
@@ -185,8 +186,8 @@ var middleSchoolStyleFunction = baseSchoolStyle(
 
 // 小学校区スタイル
 var elementaryStyleFunction = baseSchoolStyle(
-+	'#1BA466', 'rgba(27, 164, 102, 0.1)'
-+	);
+	'#1BA466', 'rgba(27, 164, 102, 0.1)'
+	);
 
 // 距離計測用同心円の色設定
 var circleStyleFunction = function(feature, resolution) {
