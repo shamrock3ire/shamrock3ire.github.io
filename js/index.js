@@ -574,10 +574,10 @@ $('#mainPage').on('pageshow', function() {
 				content += '<td>'+feature.get('TEL')+'</td>';
 				content += '</tr>';
 			}
-			if (feature.get('住所２') !== undefined) {
+			if (feature.get('住所2') !== undefined) {
 				content += '<tr>';
 				content += '<th>住所</th>';
-				content += '<td>'+'つくば市'+feature.get('住所２')+'</td>';
+				content += '<td>'+'つくば市'+feature.get('住所2')+'</td>';
 				content += '</tr>';
 			}
 			if (feature.get('設置者') !== null) {
