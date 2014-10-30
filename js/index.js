@@ -392,7 +392,7 @@ $('#mainPage').on('pageshow', function() {
 			appendToMoveToListBox(moveToList);
 		});
 
-	// 駅位置JSONデータ読み込み?セレクトボックス追加
+	// 駅位置JSONデータ読み込み セレクトボックス追加
 	$.getJSON(
 		"data/station.geojson",
 		function(data){
@@ -525,7 +525,7 @@ $('#mainPage').on('pageshow', function() {
 			if (feature.get('開園時間') !== null && feature.get('終園時間') !== null) {
 				content += '<tr>';
 				content += '<th>時間</th>';
-				content += '<td>' + feature.get('開園時間') + '?' + feature.get('終園時間')+'</td>';
+				content += '<td>' + feature.get('開園時間') + '-' + feature.get('終園時間')+'</td>';
 				content += '</tr>';
 				if( feature.get('延長') === 1) {
 					content += '<tr>';
@@ -554,7 +554,7 @@ $('#mainPage').on('pageshow', function() {
 			if (feature.get('開始年齢') !== null && feature.get('終了年齢') !== null) {
 				content += '<tr>';
 				content += '<th>年齢</th>';
-				content += '<td>' + feature.get('開始年齢') + '?' + feature.get('終了年齢') + '</td>';
+				content += '<td>' + feature.get('開始年齢') + '-' + feature.get('終了年齢') + '</td>';
 				content += '</tr>';
 			}
 			if (feature.get('定員') !== null) {
