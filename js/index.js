@@ -533,10 +533,15 @@ $('#mainPage').on('pageshow', function() {
 					content += '<td>' + feature.get('備考') + '</td>';
 					content += '</tr>';
 				}
-
-				if( feature.get('一時') !== null || feature.get('休日') !== null || feature.get('夜間') !== null) {
+				if( feature.get('H24') === 1) {
 					content += '<tr>';
 					content += '<th></th>';
+					content += '<td>' + '24時間対応' + '</td>';
+					content += '</tr>';
+				}
+				if( feature.get('一時') !== null || feature.get('休日') !== null || feature.get('夜間') !== null) {
+					content += '<tr>';
+					content += '<th>特記</th>';
 					content += '<td>';
 					if (feature.get('一時') !== null) {
 						content += '一時保育 ';
@@ -569,10 +574,10 @@ $('#mainPage').on('pageshow', function() {
 				content += '<td>'+feature.get('TEL')+'</td>';
 				content += '</tr>';
 			}
-			if (feature.get('住所１') !== undefined && feature.get('住所２') !== undefined) {
+			if (feature.get('住所２') !== undefined) {
 				content += '<tr>';
 				content += '<th>住所</th>';
-				content += '<td>'+feature.get('住所１')+feature.get('住所２')+'</td>';
+				content += '<td>'+'つくば市'+feature.get('住所２')+'</td>';
 				content += '</tr>';
 			}
 			if (feature.get('設置者') !== null) {
