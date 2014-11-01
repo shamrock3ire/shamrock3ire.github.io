@@ -369,7 +369,7 @@ $('#mainPage').on('pageshow', function() {
 	$.getJSON(
 		"data/wards.geojson",
 		function(data){
-			moveToList.push( {name: "中学高区", header:true} );
+			moveToList.push( {name: "中学校区", header:true} );
 			var lineName = "";
 			for(var i=0; i<data.features.length; i++) {
 				switch(data.features[i].geometry.type) {
