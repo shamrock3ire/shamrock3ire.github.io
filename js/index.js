@@ -250,7 +250,7 @@ function loadWardsJson()
 	$.getJSON(
 		"data/wards.geojson",
 		function(data){
-			moveToList.push( {name: "区", header:true} );
+			moveToList.push( {name: "中学校区", header:true} );
 			var lineName = "";
 			for(var i=0; i<data.features.length; i++) {
 				switch(data.features[i].geometry.type) {
@@ -263,7 +263,7 @@ function loadWardsJson()
 							);
 						break;
 					case "LineString":
-						_name        = data.features[i].properties.CITY1 + data.features[i].properties.name;
+						_name        = data.features[i].properties.name;
 						_coordinates = data.features[i].geometry.coordinates;
 						moveToList.push(
 							{name: _name, coordinates: _coordinates, header:false}
