@@ -768,7 +768,7 @@ $('#mainPage').on('pageshow', function() {
 		if($(this).prop('checked')) {
 			// 指定した条件に一致する配列要素を抽出
 			var features = nurseryFacilities.features.filter(function(item,idx){
-				if(item.properties['こども園'] === 1) return true;
+				if(item.properties['こども園'] !== null) return true;
 			});
 			newGeoJson.features = features;
 			addNurseryFacilitiesLayer(newGeoJson);
