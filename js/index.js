@@ -1,7 +1,7 @@
 var map;
 
 // 地図表示時の中心座標
-var init_center_coords = [140.1175907, 36.0852375];
+var init_center_coords = [140.110931, 36.077758];
 
 // 中心座標変更セレクトボックス用データ
 var moveToList = [];
