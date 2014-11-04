@@ -765,6 +765,12 @@ $('#mainPage').on('pageshow', function() {
 
 	// 絞り込み検索のサンプル
 	$('#cbTest').click(function() {
+		// なんもしない
+		var newGeoJson = {
+			"type": "FeatureCollection",
+			"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+			"features":[]
+		};
 		if($(this).prop('checked')) {
 			// 指定した条件に一致する配列要素を抽出
 			var features = nurseryFacilities.features.filter(function(item,idx){
