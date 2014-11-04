@@ -285,7 +285,7 @@ function loadWardsJson()
 function loadStationJson()
 {
 	var d = new $.Deferred();
-	// 駅位置JSONデータ読み込み〜セレクトボックス追加
+	// 駅位置JSONデータ読み込み-セレクトボックス追加
 	$.getJSON(
 		"data/station.geojson",
 		function(data){
@@ -560,7 +560,7 @@ $('#mainPage').on('pageshow', function() {
 			content = '<table><tbody>';
 			if (feature.get('開園時間') !== null && feature.get('終園時間') !== null) {
 				content += '<tr>';
-				content += '<th>時間</th>';
+				content += '<th><b>時間</b></th>';
 				content += '<td>' + feature.get('開園時間') + '-' + feature.get('終園時間')+'</td>';
 				content += '</tr>';
 				if( feature.get('延長') === 1) {
@@ -577,7 +577,7 @@ $('#mainPage').on('pageshow', function() {
 				}
 				if( feature.get('一時') !== null || feature.get('休日') !== null || feature.get('夜間') !== null) {
 					content += '<tr>';
-					content += '<th>特記</th>';
+					content += '<th><b>特記</b></th>';
 					content += '<td>';
 					if (feature.get('一時') !== null) {
 						content += '一時保育 ';
@@ -594,38 +594,38 @@ $('#mainPage').on('pageshow', function() {
 			}
 			if (feature.get('開始年齢') !== null && feature.get('終了年齢') !== null) {
 				content += '<tr>';
-				content += '<th>年齢</th>';
+				content += '<th><b>年齢</b></th>';
 				content += '<td>' + feature.get('開始年齢') + '-' + feature.get('終了年齢') + '</td>';
 				content += '</tr>';
 			}
 			if (feature.get('定員') !== null) {
 				content += '<tr>';
-				content += '<th>定員</th>';
+				content += '<th><b>定員</b></th>';
 				content += '<td>'+feature.get('定員')+'人</td>';
 				content += '</tr>';
 			}
 			if (feature.get('TEL') !== null) {
 				content += '<tr>';
-				content += '<th>TEL</th>';
+				content += '<th><b>TEL</b></th>';
 				content += '<td>'+feature.get('TEL')+'</td>';
 				content += '</tr>';
 			}
 			if (feature.get('住所2') !== null) {
 				content += '<tr>';
-				content += '<th>住所</th>';
+				content += '<th><b>住所</b></th>';
 				content += '<td>'+'つくば市'+feature.get('住所2')+'</td>';
 				content += '</tr>';
 			}
 			if (feature.get('設置者') !== null) {
 				content += '<tr>';
-				content += '<th>設置者</th>';
+				content += '<th><b>設置者</b></th>';
 				content += '<td>'+feature.get('設置者')+'</td>';
 				content += '</tr>';
 			}
 			if (feature.get('座標ソース') === '東大ジオコーディング') {
 				content += '<tr>';
-				content += '<th>注意</th>';
-				content += '<td>'+'位置精度：街区レベル'+'</td>';
+				content += '<th><b>注意</b></th>';
+				content += '<td>'+'位置精度：街区(ブロック)レベル'+'</td>';
 				content += '</tr>';
 			}
 			content += '</tbody></table>';
