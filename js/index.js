@@ -644,7 +644,13 @@ $('#mainPage').on('pageshow', function() {
 					content += '</tr>';
 				}
 			}
-			if (feature.get('開始年齢') !== null && feature.get('終了年齢') !== null) {
+			if (feature.get('開始年齢') !== null && feature.get('終了年齢') !== null && feature.get('種別') === '幼稚園') {
+				content += '<tr>';
+				content += '<th><b>年齢</b></th>';
+				content += '<td>' + feature.get('開始年齢') + '</td>';
+				content += '</tr>';
+			}
+			if (feature.get('開始年齢') !== null && feature.get('終了年齢') !== null && feature.get('種別') !== '幼稚園') {
 				content += '<tr>';
 				content += '<th><b>年齢</b></th>';
 				content += '<td>' + feature.get('開始年齢') + '-' + feature.get('終了年齢') + '</td>';
