@@ -350,6 +350,18 @@ function addNurseryFacilitiesLayer(facilitiesData)
 		map.removeLayer(map.getLayers().item(4));
 	}
 
+	// 幼稚園
+	map.addLayer(
+		new ol.layer.Vector({
+			source: new ol.source.GeoJSON({
+				projection: 'EPSG:3857',
+				object: facilitiesData
+			}),
+			name: 'layerKindergarten',
+			style: kindergartenStyleFunction
+		})
+	);
+
 	// 認可外
 	map.addLayer(
 		new ol.layer.Vector({
@@ -372,17 +384,7 @@ function addNurseryFacilitiesLayer(facilitiesData)
 			style: ninkaStyleFunction
 		})
 	);
-	// 幼稚園
-	map.addLayer(
-		new ol.layer.Vector({
-			source: new ol.source.GeoJSON({
-				projection: 'EPSG:3857',
-				object: facilitiesData
-			}),
-			name: 'layerKindergarten',
-			style: kindergartenStyleFunction
-		})
-	);
+
 }
 
 $(window).on("orientationchange", function() {
