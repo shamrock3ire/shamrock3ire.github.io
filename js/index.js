@@ -25,7 +25,7 @@ var mapServerList = {
 		})
 	},
 	"cyberjapn-pale": {
-		label: "国土地理院",
+		label: "地理院",
 		source_type: "xyz",
 		source: new ol.source.XYZ({
 			attributions: [
