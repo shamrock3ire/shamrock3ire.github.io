@@ -30,7 +30,7 @@ var mapServerList = {
 		source: new ol.source.XYZ({
 			attributions: [
 				new ol.Attribution({
-					html: "<a href='http://portal.cyberjapan.jp/help/termsofuse.html' target='_blank'>国土地理院</a>"
+					html: "<a href='http://portal.cyberjapan.jp/help/termsofuse.html' target='_blank'>地理院</a>"
 				})
 			],
 			url: "http://cyberjapandata.gsi.go.jp/xyz/pale/{z}/{x}/{y}.png",
