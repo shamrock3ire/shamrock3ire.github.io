@@ -62,19 +62,19 @@ FacilityFilter.prototype.getFilteredFeaturesGeoJson = function(conditions, nurse
             f = function(item,idx){
                 switch(conditions['ninkaCloseTime']) {
                     case "18":
-                        checkAry = ["18:00","19:00","20:00","22:00","0:00"];
+                        checkAry = ["18:00","18:30","19:00","19:15","19:30","20:00","20:15","21:00","22:00","23:59","0:00","03:30"];
                         break;
                     case "19":
-                        checkAry = ["19:00","20:00","22:00","0:00"];
+                        checkAry = ["19:00","19:15","19:30","20:00","20:15","21:00","22:00","23:59","0:00","03:30"];
                         break;
                     case "20":
-                        checkAry = ["20:00","22:00","0:00"];
+                        checkAry = ["20:00","20:15","21:00","22:00","23:59","0:00","03:30"];
                         break;
                     case "22":
-                        checkAry = ["22:00","0:00"];
+                        checkAry = ["22:00","23:59","0:00","03:30"];
                         break;
                     case "24":
-                        checkAry = ["0:00"];
+                        checkAry = ["23:59","0:00","03:30"];
                         break;
                 }
                 if($.inArray(item.properties['終園時間'], checkAry) >= 0) {
@@ -147,19 +147,19 @@ FacilityFilter.prototype.getFilteredFeaturesGeoJson = function(conditions, nurse
                 checkAry = [];
                 switch(conditions['ninkagaiCloseTime']) {
                     case "18":
-                        checkAry = ["18:00","19:00","19:30","19:45","20:00","20:30","22:00","23:00","3:00"];
+                        checkAry = ["18:00","18:30","19:00","19:15","19:30","20:00","20:15","21:00","22:00","23:59","0:00","03:30"];
                         break;
                     case "19":
-                        checkAry = ["19:00","19:30","19:45","20:00","20:30","22:00","23:00","3:00"];
+                        checkAry = ["19:00","19:15","19:30","20:00","20:15","21:00","22:00","23:59","0:00","03:30"];
                         break;
                     case "20":
-                        checkAry = ["20:00","20:30","22:00","23:00","3:00"];
+                        checkAry = ["20:00","20:15","21:00","22:00","23:59","0:00","03:30"];
                         break;
                     case "22":
-                        checkAry = ["22:00","23:00","3:00"];
+                        checkAry = ["22:00","23:59","0:00","03:30"];
                         break;
                     case "27":
-                        checkAry = ["3:00"];
+                        checkAry = ["23:59","0:00","03:30"];
                         break;
                 }
                 if(item.properties['H24'] !== null || $.inArray(item.properties['終園時間'], checkAry) >= 0) {
