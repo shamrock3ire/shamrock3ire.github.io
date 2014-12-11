@@ -388,9 +388,15 @@ Papamamap.prototype.getPopupContent = function(feature)
         content += '<th>欠員</th>';
         content += '<td>';
         if (feature.get('Vacancy') !== null) {
-            content += '<a href="http://www.tsukuba-kosodate.jp/joxveenpw-261/#_261" target="_blank">空きあり(1月入所)</a>';
-        }
+            content += feature.get('v_age') + 'に空き有り <a href="http://www.tsukuba-kosodate.jp/joxveenpw-261/#_261" target="_blank">【詳細】</a>';
+　　　　}
         content += '</td>';
+        content += '</tr>';
+    }
+    if (feature.get('種別') == "認可保育所") {
+        content += '<tr>';
+        content += '<th>情報更新</th>';
+        content += '<td>2014/12/1</td>';
         content += '</tr>';
     }
     if (feature.get('開始年齢') !== null && feature.get('終了年齢') !== null) {
@@ -426,7 +432,7 @@ Papamamap.prototype.getPopupContent = function(feature)
 　　if (feature.get('座標ソース') === '東大ジオコーディング') {
 　　　　content += '<tr>';
 　　　　content += '<th><b>注意</b></th>';
-　　　　content += '<td>'+'位置精度：街区(ブロック)レベル'+'</td>';
+　　　　content += '<td>'+'位置精度：街区レベル'+'</td>';
 	content += '</tr>';
 　　}
     content += '</tbody></table>';
