@@ -411,10 +411,10 @@ Papamamap.prototype.getPopupContent = function(feature)
         content += '<td>'+feature.get('TEL')+'</td>';
         content += '</tr>';
     }
-    if (feature.get('住所１') !== undefined && feature.get('住所２') !== undefined) {
+    if (feature.get('住所2') !== null) {
         content += '<tr>';
         content += '<th>住所</th>';
-        content += '<td>'+feature.get('住所１')+feature.get('住所２')+'</td>';
+        content += '<td>'+'つくば市'+feature.get('住所2')+'</td>';
         content += '</tr>';
     }
     if (feature.get('設置者') !== null) {
@@ -423,6 +423,12 @@ Papamamap.prototype.getPopupContent = function(feature)
         content += '<td>'+feature.get('設置者')+'</td>';
         content += '</tr>';
     }
+　　if (feature.get('座標ソース') === '東大ジオコーディング') {
+　　　　content += '<tr>';
+　　　　content += '<th><b>注意</b></th>';
+　　　　content += '<td>'+'位置精度：街区(ブロック)レベル'+'</td>';
+	content += '</tr>';
+　　}
     content += '</tbody></table>';
     return content;
 };
