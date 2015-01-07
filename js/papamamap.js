@@ -387,7 +387,7 @@ Papamamap.prototype.getPopupContent = function(feature)
         content += '<tr>';
         content += '<th>欠員</th>';
         content += '<td>';
-        if (feature.get('Vacancy') !== null) {
+        if (feature.get('v_age') !== null) {
             content += feature.get('v_age') + 'に空き有り <a href="http://www.tsukuba-kosodate.jp/joxveenpw-261/#_261" target="_blank">【詳細】</a>';
 　　　　}
         content += '</td>';
@@ -396,7 +396,7 @@ Papamamap.prototype.getPopupContent = function(feature)
     if (feature.get('種別') == "認可保育所") {
         content += '<tr>';
         content += '<th>情報更新</th>';
-        content += '<td>2014/12/1</td>';
+        content += '<td>2015/1/6</td>';
         content += '</tr>';
     }
     if (feature.get('開始年齢') !== null && feature.get('終了年齢') !== null) {
