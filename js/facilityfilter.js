@@ -128,7 +128,7 @@ FacilityFilter.prototype.getFilteredFeaturesGeoJson = function(conditions, nurse
     }
     if(conditions['ninkaVacancy']) {
         filterfunc = function(item,idx){
-            if(item.properties['Vacancy'] !== null) {
+            if(item.properties['v_age'] !== null) {
                 return true;
             }
         };
