@@ -396,7 +396,7 @@ Papamamap.prototype.getPopupContent = function(feature)
     if (feature.get('種別') == "認可保育所") {
         content += '<tr>';
         content += '<th>情報更新</th>';
-        content += '<td>2015/11/2</td>';
+        content += '<td>2015/11/12</td>';
         content += '</tr>';
     }
     if (feature.get('開始年齢') !== null && feature.get('終了年齢') !== null) {
