@@ -38,6 +38,13 @@ FacilityFilter.prototype.getFilteredFeaturesGeoJson = function(conditions, nurse
             if(item.properties['種別'] == "幼稚園") return true;
         });
     Array.prototype.push.apply(youchienFeatures, _features);
+    
+    // 一時預かりのみの検索元データを取得
+    var ichijiFeatures = [];
+    _features = nurseryFacilities.features.filter(function(item,idx){
+            if(item.properties['種別'] == "一時預かりのみ") return true;
+        });
+    Array.prototype.push.apply(ichijiFeatures, _features);
 
     // ----------------------------------------------------------------------
     // 認可保育所向けフィルター
@@ -145,20 +152,23 @@ FacilityFilter.prototype.getFilteredFeaturesGeoJson = function(conditions, nurse
         filterfunc = function(item, idx) {
             f = function(item,idx){
                 switch(conditions['ninkagaiOpenTime']) {
+                    case "6:30":
+                        checkAry = ["0:00","6:30"];
+                        break;
                     case "7:00":
-                        checkAry = ["7:00"];
+                        checkAry = ["0:00","6:30","7:00"];
                         break;
                     case "7:30":
-                        checkAry = ["7:00","7:30"];
+                        checkAry = ["0:00","6:30","7:00","7:30"];
                         break;
                     case "8:00":
-                        checkAry = ["7:00","7:30","8:00"];
+                        checkAry = ["0:00","6:30","7:00","7:30","8:00"];
                         break;
                     case "8:30":
-                        checkAry = ["7:00","7:30","8:00","8:30"];
+                        checkAry = ["0:00","6:30","7:00","7:30","8:00","8:30"];
                         break;
                     case "9:00":
-                        checkAry = ["7:00","7:30","8:00","8:30","9:00"];
+                        checkAry = ["0:00","6:30","7:00","7:30","8:00","8:30","9:00"];
                         break;
                 }
                 if($.inArray(item.properties['開園時間'], checkAry) >= 0) {
@@ -175,20 +185,26 @@ FacilityFilter.prototype.getFilteredFeaturesGeoJson = function(conditions, nurse
             f = function(item,idx){
                 checkAry = [];
                 switch(conditions['ninkagaiCloseTime']) {
+                    case "15":
+                        checkAry = ["15:00","17:00","18:00","18:30","19:00","19:15","19:30","20:00","20:15","21:00","22:00","23:59","0:00","3:30","27:00"];
+                        break;
+                    case "17":
+                        checkAry = ["17:00","15:00","18:00","18:30","19:00","19:15","19:30","20:00","20:15","21:00","22:00","23:59","0:00","3:30","27:00"];
+                        break;                    
                     case "18":
-                        checkAry = ["18:00","18:30","19:00","19:15","19:30","20:00","20:15","21:00","22:00","23:59","0:00","3:30"];
+                        checkAry = ["18:00","18:30","19:00","19:15","19:30","20:00","20:15","21:00","22:00","23:59","0:00","3:30","27:00"];
                         break;
                     case "19":
-                        checkAry = ["19:00","19:15","19:30","20:00","20:15","21:00","22:00","23:59","0:00","3:30"];
+                        checkAry = ["19:00","19:15","19:30","20:00","20:15","21:00","22:00","23:59","0:00","3:30","27:00"];
                         break;
                     case "20":
-                        checkAry = ["20:00","20:15","21:00","22:00","23:59","0:00","3:30"];
+                        checkAry = ["20:00","20:15","21:00","22:00","23:59","0:00","3:30","27:00"];
                         break;
                     case "22":
-                        checkAry = ["22:00","23:59","0:00","3:30"];
+                        checkAry = ["22:00","23:59","0:00","3:30","27:00"];
                         break;
                     case "27":
-                        checkAry = ["23:59","0:00","3:30"];
+                        checkAry = ["23:59","0:00","3:30","27:00"];
                         break;
                 }
                 if(item.properties['H24'] !== null || $.inArray(item.properties['終園時間'], checkAry) >= 0) {
@@ -199,7 +215,7 @@ FacilityFilter.prototype.getFilteredFeaturesGeoJson = function(conditions, nurse
         };
         ninkagaiFeatures = ninkagaiFeatures.filter(filterfunc);
     }
-    // 認可保育所：24時間
+    // 認可外：24時間
     if(conditions['ninkagai24H']) {
         filterfunc = function(item,idx){
             if(item.properties['H24'] !== null) {
@@ -208,7 +224,16 @@ FacilityFilter.prototype.getFilteredFeaturesGeoJson = function(conditions, nurse
         };
         ninkagaiFeatures = ninkagaiFeatures.filter(filterfunc);
     }
-    // 認可保育所：証明あり
+    // 認可外：一時保育
+    if(conditions['ninkagaiIchijiHoiku']) {
+        filterfunc = function(item,idx){
+            if(item.properties['一時'] !== null) {
+                return true;
+            }
+        };
+        ninkagaiFeatures = ninkagaiFeatures.filter(filterfunc);
+    }
+    // 認可外保育所：証明あり
     if(conditions['ninkagaiShomei']) {
         filterfunc = function(item,idx){
             if(item.properties['証明'] !== null) {
@@ -229,6 +254,7 @@ FacilityFilter.prototype.getFilteredFeaturesGeoJson = function(conditions, nurse
     Array.prototype.push.apply(features, ninkaFeatures);
     Array.prototype.push.apply(features, ninkagaiFeatures);
     Array.prototype.push.apply(features, youchienFeatures);
+    Array.prototype.push.apply(features, ichijiFeatures);
     // console.log("getFilteredFeaturesGeoJson: return value: ", features.length);
     newGeoJson.features = features;
     return newGeoJson;

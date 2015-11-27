@@ -36,6 +36,10 @@
 	background-color: #FF5C24;
 }
 
+#lblIchiji.ui-checkbox-on {
+	background-color: #3F5538;
+}
+
 #lblMiddleSchool.ui-checkbox-on {
 	background-color: #7379AE;
 }

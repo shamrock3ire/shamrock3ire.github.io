@@ -150,12 +150,26 @@ Papamamap.prototype.animatedMove = function(lon, lat, isTransform)
  */
 Papamamap.prototype.addNurseryFacilitiesLayer = function(facilitiesData)
 {
-    if(this.map.getLayers().getLength() >= 4) {
-        this.map.removeLayer(this.map.getLayers().item(4));
-        this.map.removeLayer(this.map.getLayers().item(4));
-        this.map.removeLayer(this.map.getLayers().item(4));
+    if(this.map.getLayers().getLength() >= 5) {
+        this.map.removeLayer(this.map.getLayers().item(5));
+        this.map.removeLayer(this.map.getLayers().item(5));
+        this.map.removeLayer(this.map.getLayers().item(5));
+        this.map.removeLayer(this.map.getLayers().item(5));
     }
 
+    // 一時預かりのみ
+    this.map.addLayer(
+        new ol.layer.Vector({
+            source: new ol.source.GeoJSON({
+                projection: 'EPSG:3857',
+                object: facilitiesData
+            }),
+            name: 'layerIchiji',
+            style: ichijiStyleFunction
+        })
+    );
+    //
+    
     // 幼稚園
     this.map.addLayer(
         new ol.layer.Vector({

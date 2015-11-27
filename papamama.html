@@ -34,6 +34,9 @@
                     <label for="cbKindergarten" id="lblKindergarten">幼</label>
                     <input type="checkbox" name="cbKindergarten" id="cbKindergarten" checked="checked">
 
+                    <label for="cbIchiji" id="lblIchiji">一預のみ</label>
+                    <input type="checkbox" name="cbIchiji" id="cbIchiji" checked="checked">
+
                     <label for="cbElementarySchool" id="lblElementarySchool">小</label>
                     <input type="checkbox" name="cbElementarySchool" id="cbElementarySchool">
 
@@ -124,7 +127,8 @@
                         <label for="ninkagaiOpenTime" class="select">開園</label>
                         <select id="ninkagaiOpenTime" class="filtersb">
                             <option value="">開園</option>
-                            <option value="7:00">7:00</option>
+                            <option value="6:30">6:30</option>
+                            <option value="7:00">7:00以前</option>
                             <option value="7:30">7:30以前</option>
                             <option value="8:00">8:00以前</option>
                             <option value="8:30">8:30以前</option>
@@ -133,12 +137,18 @@
                         <label for="ninkagaiCloseTime" class="select">終園</label>
                         <select id="ninkagaiCloseTime" class="filtersb">
                             <option value="">終園</option>
+                            <option value="15">15:00以降</option>
+                            <option value="17">17:00以降</option>                            
                             <option value="18">18:00以降</option>
                             <option value="19">19:00以降</option>
                             <option value="20">20:00以降</option>
                             <option value="22">22:00以降</option>
                             <option value="27">03:00</option>
                         </select>
+                    </fieldset>
+                    <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                        <label for="ninkagaiIchijiHoiku">一時保育</label>
+                        <input type="checkbox" id="ninkagaiIchijiHoiku" class="filtercb">
                         <label for="ninkagai24H">24時間</label>
                         <input type="checkbox" id="ninkagai24H" class="filtercb">
                     </fieldset>
