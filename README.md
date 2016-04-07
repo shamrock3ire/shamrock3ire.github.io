@@ -1,4 +1,4 @@
-# パパママMAPつくば版について
+# つくば保育園マップについて
 ========
 
 つくば市内に点在する保育所（認可、認可外）の位置・定員情報をマッピングした地図を作成しています。
@@ -16,6 +16,11 @@
 - http://www.tsukuba-kosodate.jp/nursery/Nursery_school/
 - http://nlftp.mlit.go.jp/ksj/index.html
 
-## ライセンスについて
+## fork元
 
+Code for Sapporoで開発された「さっぽろ保育園マップ」
+そこからforkしたCode for Nagareyama「ながれやま保育園マップ」を元に作成しました。
+
+## ライセンスについて
+このソフトウェアは、MITライセンスでのもとで公開されています。LICENSE.txtを見てください。
 本アプリ及びソースコードの著作権はCode for Sapporoに帰属します。
