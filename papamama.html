@@ -88,6 +88,25 @@
             <form>
                 <div style="padding:10px 20px;">
                     <h3>保育施設 絞り込み</h3>
+                  <h3>空き状況</h3><!--code for nagareyamaさんのながれやま保育園マップから流用  https://github.com/code4nagareyama/papamama/blob/2cd03c5bf9e62847c3c624bb5613cb4cc5d89170/index.html-->
+                  <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                      <label for="Vacancy0">0歳</label>
+                      <input type="checkbox" id="Vacancy0" class="filtercb">
+                      <label for="Vacancy1">1歳</label>
+                      <input type="checkbox" id="Vacancy1" class="filtercb">
+                      <label for="Vacancy2">2歳</label>
+                      <input type="checkbox" id="Vacancy2" class="filtercb">
+                      <label for="Vacancy3">3歳</label>
+                      <input type="checkbox" id="Vacancy3" class="filtercb">
+                      <label for="Vacancy4">4歳</label>
+                      <input type="checkbox" id="Vacancy4" class="filtercb">
+                      <label for="Vacancy5">5歳</label>
+                      <input type="checkbox" id="Vacancy5" class="filtercb">
+                  </fieldset>
+                  <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                        <label for="ninkaVacancy">空きあり(5月入所)</label>
+                        <input type="checkbox" id="ninkaVacancy" class="filtercb">
+                  </fieldset>                    
                     <legend>認可保育園</legend>
                     <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
                         <label for="ninkaOpenTime" class="select">開園</label>
@@ -117,10 +136,6 @@
                         <label for="ninkaKyujitu">休日</label>
                         <input type="checkbox" id="ninkaKyujitu" class="filtercb">
                         -->
-                    </fieldset>
-                    <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
-                        <label for="ninkaVacancy">空きあり(2月入所)</label>
-                        <input type="checkbox" id="ninkaVacancy" class="filtercb">
                     </fieldset>
                     <legend>認可外保育園</legend>
                     <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">

@@ -324,7 +324,44 @@ $('#mainPage').on('pageshow', function() {
 			conditions['ninkaVacancy'] = 1;
 			ninka = true;
 		}
-
+		
+		
+		//空き状況  code for nagareyamaさんのながれやま保育園マップから流用 
+		//https://github.com/code4nagareyama/papamama/blob/2cd03c5bf9e62847c3c624bb5613cb4cc5d89170/js/index.js
+		
+		// 0歳児
+		if($('#Vacancy0').prop('checked')) {
+			conditions['Vacancy0'] = 1;
+			ninka = true;
+		}
+		// 1歳児
+		if($('#Vacancy1').prop('checked')) {
+			conditions['Vacancy1'] = 1;
+			ninka = true;
+		}
+		// 2歳児
+		if($('#Vacancy2').prop('checked')) {
+			conditions['Vacancy2'] = 1;
+			ninka = true;
+		}
+		// 3歳児
+		if($('#Vacancy3').prop('checked')) {
+			conditions['Vacancy3'] = 1;
+			ninka = true;
+		}
+		// 4歳児
+		if($('#Vacancy4').prop('checked')) {
+			conditions['Vacancy4'] = 1;
+			ninka = true;
+		}
+		// 5歳児
+		if($('#Vacancy5').prop('checked')) {
+			conditions['Vacancy5'] = 1;
+			ninka = true;
+		}
+		
+		//空き状況  code for nagareyamaさんのながれやま保育園マップから流用ここまで
+		
 		// 認可外
 		if($('#ninkagaiOpenTime option:selected').val() !== "") {
 			conditions['ninkagaiOpenTime'] = $('#ninkagaiOpenTime option:selected').val();

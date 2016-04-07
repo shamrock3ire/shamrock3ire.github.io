@@ -141,6 +141,71 @@ FacilityFilter.prototype.getFilteredFeaturesGeoJson = function(conditions, nurse
         };
         ninkaFeatures = ninkaFeatures.filter(filterfunc);
     }
+    
+    //空き状況code for nagareyamaさんのながれやま保育園マップから流用 
+    //https://github.com/code4nagareyama/papamama/blob/2cd03c5bf9e62847c3c624bb5613cb4cc5d89170/js/facilityfilter.js
+    //0歳
+    if(conditions['Vacancy0']) {
+        filterfunc = function (item,idx) {
+            var vacancy0 = item.properties['Vacancy0'] ? item.properties['Vacancy0'] : item.properties['Vacancy0'];
+            if(vacancy0 !== null) {
+                return true;
+            }
+        };
+        ninkaFeatures = ninkaFeatures.filter(filterfunc);
+    }
+    //1歳
+    if(conditions['Vacancy1']) {
+        filterfunc = function (item,idx) {
+            var vacancy0 = item.properties['Vacancy1'] ? item.properties['Vacancy1'] : item.properties['Vacancy1'];
+            if(vacancy0 !== null) {
+                return true;
+            }
+        };
+        ninkaFeatures = ninkaFeatures.filter(filterfunc);
+    }
+    //2歳
+    if(conditions['Vacancy2']) {
+        filterfunc = function (item,idx) {
+            var vacancy0 = item.properties['Vacancy2'] ? item.properties['Vacancy2'] : item.properties['Vacancy2'];
+            if(vacancy0 !== null) {
+                return true;
+            }
+        };
+        ninkaFeatures = ninkaFeatures.filter(filterfunc);
+    }
+    //3歳
+    if(conditions['Vacancy3']) {
+        filterfunc = function (item,idx) {
+            var vacancy0 = item.properties['Vacancy3'] ? item.properties['Vacancy3'] : item.properties['Vacancy3'];
+            if(vacancy0 !== null) {
+                return true;
+            }
+        };
+        ninkaFeatures = ninkaFeatures.filter(filterfunc);
+    }
+    //4歳
+    if(conditions['Vacancy4']) {
+        filterfunc = function (item,idx) {
+            var vacancy0 = item.properties['Vacancy4'] ? item.properties['Vacancy4'] : item.properties['Vacancy4'];
+            if(vacancy0 !== null) {
+                return true;
+            }
+        };
+        ninkaFeatures = ninkaFeatures.filter(filterfunc);
+    }
+    //5歳
+    if(conditions['Vacancy5']) {
+        filterfunc = function (item,idx) {
+            var vacancy0 = item.properties['Vacancy5'] ? item.properties['Vacancy5'] : item.properties['Vacancy5'];
+            if(vacancy0 !== null) {
+                return true;
+            }
+        };
+        ninkaFeatures = ninkaFeatures.filter(filterfunc);
+    }    
+    //空き状況code for nagareyamaさんのながれやま保育園マップから流用 ここまで 
+    
     // console.log("[after]ninkaFeatures length:", ninkaFeatures.length);
 
     // ----------------------------------------------------------------------
