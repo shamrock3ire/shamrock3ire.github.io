@@ -402,7 +402,7 @@ Papamamap.prototype.getPopupContent = function(feature)
         content += '<th>欠員</th>';
         content += '<td>';
         if (feature.get('v_age') !== null) {
-            content += feature.get('v_age') + 'に空き有り <a href="http://www.tsukuba-kosodate.jp/index.php?action=journal_view_main_detail&nc_session=mc7g47enmua8pgpvhhmsm8jb70&post_id=2165&block_id=261" target="_blank">【詳細】</a>';
+            content += feature.get('v_age') + 'に空き有り <a href="http://www.tsukuba-kosodate.jp/?action=common_download_main&upload_id=2497" target="_blank">【詳細】</a>';
 　　　　}
         content += '</td>';
         content += '</tr>';
@@ -410,7 +410,7 @@ Papamamap.prototype.getPopupContent = function(feature)
     if (feature.get('種別') == "認可保育所") {
         content += '<tr>';
         content += '<th>情報更新</th>';
-        content += '<td>2016/7/1</td>';
+        content += '<td>2016/8/1</td>';
         content += '</tr>';
     }
     if (feature.get('開始年齢') !== null && feature.get('終了年齢') !== null) {
