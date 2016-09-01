@@ -392,7 +392,7 @@ Papamamap.prototype.getPopupContent = function(feature)
         content += '<th>監督基準</th>';
         content += '<td>';
         if (feature.get('証明') !== null) {
-            content += '証明書発行済<a href="http://www.tsukuba-kosodate.jp/nursery/Nursery_school/" target="_blank">(詳細)</a>';
+            content += '証明書発行済<a href="http://www.tsukuba-kosodate.jp/jou11ti6q-261/?action=common_download_main&upload_id=2586" target="_blank">(詳細)</a>';
         }
         content += '</td>';
         content += '</tr>';
@@ -410,7 +410,7 @@ Papamamap.prototype.getPopupContent = function(feature)
     if (feature.get('種別') == "認可保育所") {
         content += '<tr>';
         content += '<th>情報更新</th>';
-        content += '<td>2016/8/1</td>';
+        content += '<td>2016/9/1</td>';
         content += '</tr>';
     }
     if (feature.get('開始年齢') !== null && feature.get('終了年齢') !== null) {
