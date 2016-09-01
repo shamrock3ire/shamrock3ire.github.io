@@ -402,7 +402,7 @@ Papamamap.prototype.getPopupContent = function(feature)
         content += '<th>欠員</th>';
         content += '<td>';
         if (feature.get('v_age') !== null) {
-            content += feature.get('v_age') + 'に空き有り <a href="http://www.tsukuba-kosodate.jp/?action=common_download_main&upload_id=2497" target="_blank">【詳細】</a>';
+            content += feature.get('v_age') + 'に空き有り <a href="http://www.tsukuba-kosodate.jp/jou11ti6q-261/?action=common_download_main&upload_id=2586" target="_blank">【詳細】</a>';
 　　　　}
         content += '</td>';
         content += '</tr>';
