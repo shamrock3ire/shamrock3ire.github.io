@@ -1,7 +1,6 @@
 {
 "type": "FeatureCollection",
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-                                                                                
 "features": [
 { "type": "Feature", "properties": { "A32_001": "08220", "A32_002": "16", "A32_003": "茎崎中学校", "address": "小茎450", "x": 140.116307, "y": 35.990595, "label": "茎崎中" }, "geometry": { "type": "Point", "coordinates": [ 140.116307, 35.990595 ] } },
 { "type": "Feature", "properties": { "A32_001": "08220", "A32_002": "16", "A32_003": "吾妻中学校", "address": "天久保1-9-1", "x": 140.107887, "y": 36.092971, "label": "吾妻中" }, "geometry": { "type": "Point", "coordinates": [ 140.107887, 36.092971 ] } },
@@ -14,9 +13,9 @@
 { "type": "Feature", "properties": { "A32_001": "08220", "A32_002": "16", "A32_003": "谷田部東中学校", "address": "東2-25-1", "x": 140.131608, "y": 36.053809, "label": "谷田部東中" }, "geometry": { "type": "Point", "coordinates": [ 140.131608, 36.053809 ] } },
 { "type": "Feature", "properties": { "A32_001": "08220", "A32_002": "16", "A32_003": "竹園東中学校", "address": "竹園3-11", "x": 140.126247, "y": 36.082166, "label": "竹園東中" }, "geometry": { "type": "Point", "coordinates": [ 140.126247, 36.082166 ] } },
 { "type": "Feature", "properties": { "A32_001": "08220", "A32_002": "16", "A32_003": "筑波西中学校", "address": "作谷578-2", "x": 140.050189, "y": 36.189162, "label": "筑波西中" }, "geometry": { "type": "Point", "coordinates": [ 140.050189, 36.189162 ] } },
-{ "type": "Feature", "properties": { "A32_001": "08220", "A32_002": "16", "A32_003": "筑波東中学校", "address": "北条4160", "x": 140.095968, "y": 36.174600, "label": "筑波東中" }, "geometry": { "type": "Point", "coordinates": [ 140.095968, 36.1746 ] } },
+{ "type": "Feature", "properties": { "A32_001": "08220", "A32_002": "16", "A32_003": "筑波東中学校", "address": "北条4160", "x": 140.095968, "y": 36.1746, "label": "筑波東中" }, "geometry": { "type": "Point", "coordinates": [ 140.095968, 36.1746 ] } },
 { "type": "Feature", "properties": { "A32_001": "08220", "A32_002": "16", "A32_003": "並木中学校", "address": "並木3-8", "x": 140.147218, "y": 36.063919, "label": "並木中" }, "geometry": { "type": "Point", "coordinates": [ 140.147218, 36.063919 ] } },
 { "type": "Feature", "properties": { "A32_001": "08220", "A32_002": "16", "A32_003": "豊里中学校", "address": "高野1213", "x": 140.037059, "y": 36.108218, "label": "豊里中" }, "geometry": { "type": "Point", "coordinates": [ 140.037059, 36.108218 ] } },
-{ "type": "Feature", "properties": { "A32_001": "08220", "A32_002": "16", "A32_003": "春日中学校", "address": "春日2-47", "x": 140.098172, "y": 36.088901, "label": "春日中" }, "geometry": { "type": "Point", "coordinates": [ 140.09817216418776, 36.088900913495088 ] } }
+{ "type": "Feature", "properties": { "A32_001": "08220", "A32_002": "16", "A32_003": "春日学園義務教育学校", "address": "春日2-47", "x": 140.098172, "y": 36.088901, "label": "春日学園" }, "geometry": { "type": "Point", "coordinates": [ 140.09817216418776, 36.088900913495088 ] } }
 ]
 }
