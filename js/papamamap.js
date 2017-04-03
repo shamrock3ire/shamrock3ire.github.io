@@ -157,6 +157,20 @@ Papamamap.prototype.addNurseryFacilitiesLayer = function(facilitiesData)
         this.map.removeLayer(this.map.getLayers().item(5));
     }
 
+    // 認定こども園
+    this.map.addLayer(
+        new ol.layer.Vector({
+            source: new ol.source.GeoJSON({
+                projection: 'EPSG:3857',
+                object: facilitiesData
+            }),
+            name: 'layerKodomo',
+            style: kodomoStyleFunction
+        })
+    );
+
+
+
     // 一時預かりのみ
     this.map.addLayer(
         new ol.layer.Vector({
@@ -402,7 +416,7 @@ Papamamap.prototype.getPopupContent = function(feature)
         content += '<th>欠員</th>';
         content += '<td>';
         if (feature.get('v_age') !== null) {
-            content += feature.get('v_age') + 'に空き有り <a href="http://www.tsukuba-kosodate.jp/nursery/Nursery_school/?action=common_download_main&upload_id=2833" target="_blank">【詳細】</a>';
+            content += feature.get('v_age') + 'に空き有り <a href="http://www.tsukuba-kosodate.jp/nursery/Nursery_school/?action=common_download_main&upload_id=2881" target="_blank">【詳細】</a>';
 　　　　}
         content += '</td>';
         content += '</tr>';
@@ -410,7 +424,7 @@ Papamamap.prototype.getPopupContent = function(feature)
     if (feature.get('種別') == "認可保育所") {
         content += '<tr>';
         content += '<th>情報更新</th>';
-        content += '<td>2017/1/31</td>';
+        content += '<td>2017/3/31</td>';
         content += '</tr>';
     }
     if (feature.get('開始年齢') !== null && feature.get('終了年齢') !== null) {

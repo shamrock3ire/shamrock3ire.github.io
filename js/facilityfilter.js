@@ -21,9 +21,16 @@ FacilityFilter.prototype.getFilteredFeaturesGeoJson = function(conditions, nurse
     // 認可保育園の検索元データを取得
     var ninkaFeatures = [];
     _features = nurseryFacilities.features.filter(function(item,idx){
-            if(item.properties['種別'] == "認可保育所") return true;
+            if(item.properties['種別'] == "認可保育所") return true; // || item.properties['種別'] == "認定こども園"
         });
     Array.prototype.push.apply(ninkaFeatures, _features);
+
+    // 認可保育園+こども園の検索元データを取得
+    //var ninkakodomoFeatures = [];
+    //_features = nurseryFacilities.features.filter(function(item,idx){
+    //        if(item.properties['種別'] == "認可保育所" || item.properties['種別'] == "認定こども園") return true;
+    //    });
+    //Array.prototype.push.apply(ninkakodomoFeatures, _features);
 
     // 認可外保育園の検索元データを取得
     var ninkagaiFeatures = [];
@@ -45,6 +52,15 @@ FacilityFilter.prototype.getFilteredFeaturesGeoJson = function(conditions, nurse
             if(item.properties['種別'] == "一時預かりのみ") return true;
         });
     Array.prototype.push.apply(ichijiFeatures, _features);
+
+    /*
+    // こども園の検索元データを取得
+    var kodomoFeatures = [];
+    _features = nurseryFacilities.features.filter(function(item,idx){
+            if(item.properties['種別'] == "認定こども園") return true;
+        });
+    Array.prototype.push.apply(kodomoFeatures, _features);
+    */
 
     // ----------------------------------------------------------------------
     // 認可保育所向けフィルター
@@ -203,7 +219,168 @@ FacilityFilter.prototype.getFilteredFeaturesGeoJson = function(conditions, nurse
             }
         };
         ninkaFeatures = ninkaFeatures.filter(filterfunc);
+    }
+        
+　　　/*
+    // ----------------------------------------------------------------------
+    // 認定こども園向けフィルター
+    // ----------------------------------------------------------------------
+    // 認定こども園：開園時間
+    // console.log("[before]ninkaFeatures length:", ninkaFeatures.length);
+    if(conditions['ninkaOpenTime']) {
+        filterfunc = function(item, idx) {
+            f = function(item,idx){
+                switch(conditions['ninkaOpenTime']) {
+                    case "7:00":
+                        checkAry = ["7:00"];
+                        break;
+                    case "7:15":
+                        checkAry = ["7:00","7:15"];
+                        break;
+                    case "7:30":
+                        checkAry = ["7:00","7:15","7:30"];
+                        break;
+                    case "7:45":
+                        checkAry = ["7:00","7:15","7:30","7:45"];
+                        break;
+                }
+                if($.inArray(item.properties['開園時間'], checkAry) >= 0) {
+                    return true;
+                }
+            };
+            return f(item,idx);
+        };
+        ninkaFeatures = ninkaFeatures.filter(filterfunc);
+    }
+    // 認定こども園：終園時間
+    if(conditions['ninkaCloseTime']) {
+        filterfunc = function(item, idx) {
+            f = function(item,idx){
+                switch(conditions['ninkaCloseTime']) {
+                    case "18":
+                        checkAry = ["18:00","18:30","19:00","19:15","19:30","20:00","20:15","21:00","22:00","23:59","0:00","3:30"];
+                        break;
+                    case "19":
+                        checkAry = ["19:00","19:15","19:30","20:00","20:15","21:00","22:00","23:59","0:00","3:30"];
+                        break;
+                    case "20":
+                        checkAry = ["20:00","20:15","21:00","22:00","23:59","0:00","3:30"];
+                        break;
+                    case "22":
+                        checkAry = ["22:00","23:59","0:00","3:30"];
+                        break;
+                    case "24":
+                        checkAry = ["23:59","0:00","3:30"];
+                        break;
+                }
+                if($.inArray(item.properties['終園時間'], checkAry) >= 0) {
+                    return true;
+                }
+            };
+            return f(item,idx);
+        };
+
+        ninkaFeatures = ninkaFeatures.filter(filterfunc);
+    }
+    // 認可保育所：一時
+    if(conditions['ninkaIchijiHoiku']) {
+        filterfunc = function(item,idx){
+            if(item.properties['一時'] !== null) {
+                return true;
+            }
+        };
+        ninkaFeatures = ninkaFeatures.filter(filterfunc);
+    }
+    // 認可保育所：夜間
+    if(conditions['ninkaYakan']) {
+        filterfunc = function(item,idx){
+            if(item.properties['夜間'] !== null) {
+                return true;
+            }
+        };
+        ninkaFeatures = ninkaFeatures.filter(filterfunc);
+    }
+    // 認可保育所：休日
+    if(conditions['ninkaKyujitu']) {
+        filterfunc = function(item,idx){
+            if(item.properties['休日'] !== null) {
+                return true;
+            }
+        };
+        ninkaFeatures = ninkaFeatures.filter(filterfunc);
+    }
+    if(conditions['ninkaVacancy']) {
+        filterfunc = function(item,idx){
+            if(item.properties['v_age'] !== null) {
+                return true;
+            }
+        };
+        ninkaFeatures = ninkaFeatures.filter(filterfunc);
+    }
+    
+    //空き状況code for nagareyamaさんのながれやま保育園マップから流用 
+    //https://github.com/code4nagareyama/papamama/blob/2cd03c5bf9e62847c3c624bb5613cb4cc5d89170/js/facilityfilter.js
+    //0歳
+    if(conditions['Vacancy0']) {
+        filterfunc = function (item,idx) {
+            var vacancy0 = item.properties['Vacancy0'] ? item.properties['Vacancy0'] : item.properties['Vacancy0'];
+            if(vacancy0 !== null) {
+                return true;
+            }
+        };
+        ninkaFeatures = ninkaFeatures.filter(filterfunc);
+    }
+    //1歳
+    if(conditions['Vacancy1']) {
+        filterfunc = function (item,idx) {
+            var vacancy0 = item.properties['Vacancy1'] ? item.properties['Vacancy1'] : item.properties['Vacancy1'];
+            if(vacancy0 !== null) {
+                return true;
+            }
+        };
+        ninkaFeatures = ninkaFeatures.filter(filterfunc);
+    }
+    //2歳
+    if(conditions['Vacancy2']) {
+        filterfunc = function (item,idx) {
+            var vacancy0 = item.properties['Vacancy2'] ? item.properties['Vacancy2'] : item.properties['Vacancy2'];
+            if(vacancy0 !== null) {
+                return true;
+            }
+        };
+        ninkaFeatures = ninkaFeatures.filter(filterfunc);
+    }
+    //3歳
+    if(conditions['Vacancy3']) {
+        filterfunc = function (item,idx) {
+            var vacancy0 = item.properties['Vacancy3'] ? item.properties['Vacancy3'] : item.properties['Vacancy3'];
+            if(vacancy0 !== null) {
+                return true;
+            }
+        };
+        ninkaFeatures = ninkaFeatures.filter(filterfunc);
+    }
+    //4歳
+    if(conditions['Vacancy4']) {
+        filterfunc = function (item,idx) {
+            var vacancy0 = item.properties['Vacancy4'] ? item.properties['Vacancy4'] : item.properties['Vacancy4'];
+            if(vacancy0 !== null) {
+                return true;
+            }
+        };
+        ninkaFeatures = ninkaFeatures.filter(filterfunc);
+    }
+    //5歳
+    if(conditions['Vacancy5']) {
+        filterfunc = function (item,idx) {
+            var vacancy0 = item.properties['Vacancy5'] ? item.properties['Vacancy5'] : item.properties['Vacancy5'];
+            if(vacancy0 !== null) {
+                return true;
+            }
+        };
+        ninkaFeatures = ninkaFeatures.filter(filterfunc);
     }    
+    */
     //空き状況code for nagareyamaさんのながれやま保育園マップから流用 ここまで 
     
     // console.log("[after]ninkaFeatures length:", ninkaFeatures.length);
@@ -320,6 +497,9 @@ FacilityFilter.prototype.getFilteredFeaturesGeoJson = function(conditions, nurse
     Array.prototype.push.apply(features, ninkagaiFeatures);
     Array.prototype.push.apply(features, youchienFeatures);
     Array.prototype.push.apply(features, ichijiFeatures);
+    //Array.prototype.push.apply(features, kodomoFeatures);
+    //Array.prototype.push.apply(features, ninkakodomoFeatures);
+
     // console.log("getFilteredFeaturesGeoJson: return value: ", features.length);
     newGeoJson.features = features;
     return newGeoJson;

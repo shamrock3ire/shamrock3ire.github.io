@@ -212,7 +212,7 @@ button.ol-full-screen-true:after {
   content: " ";
 }
 .ol-attribution img {
-  max-height: 2em;
+  max-height: 1em;
 }
 .ol-attribution ul, .ol-attribution button {
   display: inline-block;

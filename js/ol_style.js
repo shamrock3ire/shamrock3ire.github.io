@@ -7,7 +7,8 @@ var featureStyleList = {
 	'認可外': { color: '#0362A0', img: 'image/019.png'},
 	'幼稚園': { color: '#FF5C24', img: 'image/029.png'},
 	'認可保育所': { color: '#6EE100', img: 'image/018.png'},
-	'一時預かりのみ': { color: '#3F5538', img: 'image/018.png'}
+	'一時預かりのみ': { color: '#3F5538', img: 'image/018.png'},
+	'認定こども園': { color: '#1dcbd1', img: 'image/018.png'}
 };
 
 /**
@@ -73,6 +74,17 @@ var ichijiStyleFunction = function(feature, resolution)
 	var facilityTypeName = feature.get('種別');
 	var style = [];
 	if(facilityTypeName === "一時預かりのみ") {
+		featureStyle = featureStyleList[facilityTypeName];
+		style        = nurseryStyleFunction(feature, resolution, featureStyle);
+	}
+	return style;
+};
+
+var kodomoStyleFunction = function(feature, resolution)
+{
+	var facilityTypeName = feature.get('種別');
+	var style = [];
+	if(facilityTypeName === "認定こども園") {
 		featureStyle = featureStyleList[facilityTypeName];
 		style        = nurseryStyleFunction(feature, resolution, featureStyle);
 	}
