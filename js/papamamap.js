@@ -416,7 +416,7 @@ Papamamap.prototype.getPopupContent = function(feature)
         content += '<th>欠員</th>';
         content += '<td>';
         if (feature.get('v_age') !== null) {
-            content += feature.get('v_age') + 'に空き有り <a href="http://www.tsukuba-kosodate.jp/nursery/Nursery_school/?action=common_download_main&upload_id=2983" target="_blank">【詳細】</a>';
+            content += feature.get('v_age') + 'に空き有り <a href="http://www.tsukuba-kosodate.jp/nursery/Nursery_school/?action=common_download_main&upload_id=3068" target="_blank">【詳細】</a>';
 　　　　}
         content += '</td>';
         content += '</tr>';
@@ -424,7 +424,7 @@ Papamamap.prototype.getPopupContent = function(feature)
     if (feature.get('種別') == "認可保育所") {
         content += '<tr>';
         content += '<th>情報更新</th>';
-        content += '<td>2017/6/1</td>';
+        content += '<td>2017/6/30</td>';
         content += '</tr>';
     }
     if (feature.get('開始年齢') !== null && feature.get('終了年齢') !== null) {
