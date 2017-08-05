@@ -150,10 +150,8 @@ Papamamap.prototype.animatedMove = function(lon, lat, isTransform)
  */
 Papamamap.prototype.addNurseryFacilitiesLayer = function(facilitiesData)
 {
-    if(this.map.getLayers().getLength() >= 5) {
-        this.map.removeLayer(this.map.getLayers().item(5));
-        this.map.removeLayer(this.map.getLayers().item(5));
-        this.map.removeLayer(this.map.getLayers().item(5));
+    var layerLength = this.map.getLayers().getLength();
+    for (var i=0; i < layerLength-5; i++) {
         this.map.removeLayer(this.map.getLayers().item(5));
     }
 
