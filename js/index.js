@@ -99,8 +99,8 @@ $('#mainPage').on('pageshow', function() {
 	// 地図レイヤー定義
 	var papamamap = new Papamamap();
 	papamamap.viewCenter = init_center_coords;
-//	papamamap.generate(mapServerList['bing-road']);
-	papamamap.generate(mapServerList['mierune-normal']);
+	papamamap.generate(mapServerList['bing-road']);
+//	papamamap.generate(mapServerList['mierune-normal']);
 	map = papamamap.map;
 
 	// 保育施設の読み込みとレイヤーの追加
